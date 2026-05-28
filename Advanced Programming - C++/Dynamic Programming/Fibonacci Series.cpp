@@ -1,20 +1,21 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int fib_iterative(int x)
+int fib_iterative(int n)
 {
-    if (x <= 1)
+    if (n <= 1)
     {
-        return x;
+        return n;
     }
-    int n1 = 0, n2 = 1, n3;
-    for (int i = 2; i <= x; i++)
+    vector<int> a(n + 1);
+    a[0] = 0;
+    a[1] = 1;
+    for (int i = 2; i <= n; i++)
     {
-        n3 = n1 + n2;
-        n1 = n2;
-        n2 = n3;
+        a[i] = a[i - 1] + a[i - 2];
     }
-    return n3;
+    return a[n];
 }
 
 int fib_recursive(int x)
